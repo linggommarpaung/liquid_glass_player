@@ -126,6 +126,11 @@ struct LiquidGlassView: View {
         .onAppear {
             setupPlayer()
         }
+        .onDisappear {
+            player.pause()
+            // Optional: membersihkan item agar benar-benar berhenti
+            player.replaceCurrentItem(with: nil)
+        }
     }
 
     private func setupPlayer() {

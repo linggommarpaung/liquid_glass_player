@@ -1,3 +1,8 @@
+## 0.0.6
+
+* Fixed an issue where video audio continued to play after the player was closed.
+* Improved native view lifecycle management and resource cleanup.
+
 ## 0.0.5
 
 * Updated maintainer information with Verified Publisher status.

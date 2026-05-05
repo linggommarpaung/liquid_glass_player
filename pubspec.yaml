@@ -1,6 +1,6 @@
 name: liquid_glass_player
 description: "A premium glassmorphism video player for Flutter (iOS only) with native performance and customizable controls."
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/linggommarpaung/liquid_glass_player
 repository: https://github.com/linggommarpaung/liquid_glass_player
 topics:

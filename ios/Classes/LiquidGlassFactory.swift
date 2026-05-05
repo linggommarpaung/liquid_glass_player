@@ -24,6 +24,7 @@ class LiquidGlassFactory: NSObject, FlutterPlatformViewFactory {
 // 2. Native View Class
 class LiquidGlassNativeView: NSObject, FlutterPlatformView {
     private var _view: UIView
+    private var hostingController: UIHostingController<LiquidGlassView>?
 
     init(frame: CGRect, viewId: Int64, messenger: FlutterBinaryMessenger, arguments args: Any?) {
         let params = args as? [String: Any]
@@ -40,17 +41,25 @@ class LiquidGlassNativeView: NSObject, FlutterPlatformView {
             autoPlay: autoPlay,
             autoReplay: autoReplay
         )
-        let hostingController = UIHostingController(rootView: swiftUIView)
         
-        _view = hostingController.view
+        let hc = UIHostingController(rootView: swiftUIView)
+        self.hostingController = hc
+        
+        _view = hc.view
         _view.frame = frame
         _view.backgroundColor = .clear
-        hostingController.view.backgroundColor = .clear
+        hc.view.backgroundColor = .clear
         
         super.init()
     }
 
-        func view() -> UIView {
-            return _view
-        }
+    func view() -> UIView {
+        return _view
     }
+    
+    deinit {
+        // Memastikan hosting controller dilepas dan view dihapus
+        hostingController?.view.removeFromSuperview()
+        hostingController = nil
+    }
+}
