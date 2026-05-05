@@ -108,6 +108,21 @@ struct LiquidGlassView: View {
         }
         .background(Color.black)
         .ignoresSafeArea()
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    // Jika sedang landscape dan diseret lebih dari 100 unit ke arah mana pun
+                    if isLandscape {
+                        let horizontalDrag = abs(value.translation.width)
+                        let verticalDrag = abs(value.translation.height)
+                        
+                        if horizontalDrag > 100 || verticalDrag > 100 {
+                            isLandscape = false
+                            channel.invokeMethod("toggleFullScreen", arguments: false)
+                        }
+                    }
+                }
+        )
         .onAppear {
             setupPlayer()
         }
