@@ -2,6 +2,10 @@
 
 A premium glassmorphism video player for Flutter (iOS only) that provides a native AVPlayer experience with a sleek, modern, frosted-glass aesthetic.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/linggommarpaung/liquid_glass_player/main/screenshots/demo.gif" alt="Liquid Glass Player Demo" width="300">
+</p>
+
 ## Features
 
 - **Glassmorphism Design**: Beautiful "frosted glass" effect on the player container.
