@@ -1,3 +1,8 @@
+## 0.0.5
+
+* Updated maintainer information with Verified Publisher status.
+* Minor documentation refinements and cleanup.
+
 ## 0.0.4
 
 * Added swipe/drag gesture to exit landscape mode.
