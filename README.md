@@ -46,6 +46,10 @@ SizedBox(
 
 *Note: This plugin currently only supports iOS.*
 
+## Maintainer
+
+This project is developed and maintained by **Linggom Marpaung**, a verified publisher on pub.dev. We are committed to providing high-quality, native-grade Flutter plugins.
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for more details.
