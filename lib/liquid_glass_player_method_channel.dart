@@ -8,5 +8,4 @@ class MethodChannelLiquidGlassPlayer extends LiquidGlassPlayerPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('liquid_glass_player');
-
 }

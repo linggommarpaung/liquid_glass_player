@@ -1,9 +1,9 @@
 # Liquid Glass Player
 
-A premium glassmorphism video player for Flutter (iOS only) that provides a native AVPlayer experience with a sleek, modern, frosted-glass aesthetic.
+A premium Flutter video player with a stunning liquid glassmorphism effect and ambient glow, inspired by Apple TV.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/linggommarpaung/liquid_glass_player/main/screenshots/demo.png" alt="Liquid Glass Player Demo" width="300">
+  <img src="https://raw.githubusercontent.com/linggommarpaung/liquid_glass_player/main/screenshots/demo.gif" alt="Liquid Glass Player Demo" width="350">
 </p>
 
 ## Features
@@ -19,7 +19,7 @@ Add `liquid_glass_player` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  liquid_glass_player: ^0.0.7
+  liquid_glass_player: ^0.0.8
 ```
 
 ## Usage

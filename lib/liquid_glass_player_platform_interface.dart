@@ -22,5 +22,4 @@ abstract class LiquidGlassPlayerPlatform extends PlatformInterface {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }
-
 }

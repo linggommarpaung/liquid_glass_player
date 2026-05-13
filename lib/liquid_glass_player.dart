@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 /// A premium video player widget with a glassmorphism effect.
-/// 
+///
 /// Currently supports iOS only.
 class LiquidGlassPlayer extends StatefulWidget {
   /// The URL of the video to play.
@@ -32,7 +31,9 @@ class LiquidGlassPlayer extends StatefulWidget {
 
 class _LiquidGlassPlayerState extends State<LiquidGlassPlayer> {
   // 1. Definisikan channel dengan nama yang sama seperti di Swift
-  static const MethodChannel _channel = MethodChannel('liquid_glass_player_controls');
+  static const MethodChannel _channel = MethodChannel(
+    'liquid_glass_player_controls',
+  );
 
   @override
   void initState() {
@@ -51,9 +52,7 @@ class _LiquidGlassPlayerState extends State<LiquidGlassPlayer> {
           ]);
         } else {
           // Memaksa layar kembali menjadi Portrait (Tegak)[cite: 7]
-          SystemChrome.setPreferredOrientations([
-            DeviceOrientation.portraitUp,
-          ]);
+          SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
         }
       }
     });
