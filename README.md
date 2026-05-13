@@ -19,7 +19,7 @@ Add `liquid_glass_player` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  liquid_glass_player: ^0.0.6
+  liquid_glass_player: ^0.0.7
 ```
 
 ## Usage
