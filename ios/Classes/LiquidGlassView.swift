@@ -182,6 +182,15 @@ struct LiquidGlassView: View {
         let avPlayer = AVPlayer(playerItem: playerItem)
         avPlayer.preventsDisplaySleepDuringVideoPlayback = true
         self._player = State(initialValue: avPlayer)
+        
+        // Jalankan setup audio sekali saja di sini
+        DispatchQueue.global(qos: .userInteractive).async {
+            let audioSession = AVAudioSession.sharedInstance()
+            if audioSession.category != .playback {
+                try? audioSession.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers, .allowAirPlay])
+                try? audioSession.setActive(true)
+            }
+        }
     }
 
     var body: some View {
@@ -222,14 +231,12 @@ struct LiquidGlassView: View {
             }
         }
         .onAppear {
-            setupAudioSession()
-            if autoPlay {
+            if autoPlay && player.rate == 0 {
                 player.play()
             }
         }
         .onDisappear {
-            // Hapus pause di sini agar transisi antar view tidak mematikan video
-            // Player akan otomatis berhenti saat instance dihancurkan sepenuhnya oleh sistem
+            // Biarkan mengalir
         }
         .onReceive(NotificationCenter.default.publisher(for: .AVPlayerItemDidPlayToEndTime, object: player.currentItem)) { _ in
             if autoReplay {
@@ -253,21 +260,6 @@ struct LiquidGlassView: View {
                     }
                 }
         )
-    }
-
-    private func setupAudioSession() {
-        let audioSession = AVAudioSession.sharedInstance()
-        // Jangan set ulang jika sudah benar untuk menghindari Error -50
-        if audioSession.category == .playback && audioSession.mode == .moviePlayback {
-            return
-        }
-        
-        do {
-            try audioSession.setCategory(.playback, mode: .moviePlayback, options: [.mixWithOthers, .allowAirPlay])
-            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("Note: Audio session setup skipped or failed: \(error)")
-        }
     }
 }
 
